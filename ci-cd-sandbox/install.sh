@@ -28,3 +28,12 @@ docker run --restart always --name gogs -d -p 3000:3000 -p 10022:22 -v /var/dock
 
 #Installation de sonarqube
 mysql --host=127.0.0.1 --password=secret < sql/create_sonar_database.sql
+
+jdbc_url='jdbc:mysql://mysql_url:3306/sonar?useUnicode=true&characterEncoding=utf8'
+
+echo URL vers le serveur MySQL : 
+read input_mysql_url
+
+docker run --name sonarqube -p 9000:9000 -p 9092:9092 -d -e SONARQUBE_JDBC_USERNAME=sonar -e SONARQUBE_JDBC_PASSWORD=sonar -e SONARQUBE_JDBC_URL="${jdbc_url/mysql_url/$input_mysql_url}" sonarqube:lts
+
+#Installation de Artifactory
