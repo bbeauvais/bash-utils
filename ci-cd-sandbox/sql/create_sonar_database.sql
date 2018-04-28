@@ -1,0 +1,7 @@
+CREATE DATABASE sonar CHARACTER SET UTF8;
+
+CREATE USER 'sonar'@'%' IDENTIFIED BY 'sonar';
+
+GRANT ALL ON sonar.* TO 'sonar'@'%';
+
+FLUSH PRIVILEGES;
