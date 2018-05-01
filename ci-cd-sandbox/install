@@ -7,6 +7,9 @@ docker pull mysql:5.7
 docker volume create mysql_data
 docker run --restart always --name mysql -d -p 3306:3306 -v mysql_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=secret mysql:5.7
 
+echo Waiting for MySQL container to be completely start
+sleep 30
+
 #Installation de gogs
 docker pull gogs/gogs
 
