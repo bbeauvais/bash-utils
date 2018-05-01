@@ -45,13 +45,15 @@ Pour une utilisation simple la première page n'a pas besoin information. Gogs n
 
 ### Configuration de SonarQube
 
-SonarQube ne nécessite aucune configuration après installation, par défaut l'un utilisateur avec tous les droits est créé avec le nom `admin` et le mot de passe `admin`.
+SonarQube ne nécessite aucune configuration après installation, par défaut un administrateur avec tous les droits est créé avec les identifiants `admin:admin`.
+
+### Configuration de Artifactory
+
+Artifactory ne nécessite aucune configuration après installation, par défaut un administrateur avec tous les droits est créé avec les identifiants `admin:password`.
 
 ## Reste à faire
 
-* Finir l'installation complète de l'environnement
 * Ecrire les procédures pour les actions manuelles à effectuer
 	* Installation, configuration manuelle et liste des plugins pour Jenkins
-	* Configuration du compte SonarQube
 * Utiliser les images Docker et Docker compose plutôt que un script à la main
 * Ecrire un script de désinstallation de tout
