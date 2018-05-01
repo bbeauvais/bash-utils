@@ -27,11 +27,26 @@ A la fin du scirpts les applications seront accessibles sur le serveur :
 * Artifactory par le port 8081
 * Jenkins par le port 8080
 
+Après l'execution du script certaine application nécessite une configuration personnalisée pour pouvoir être utilisé.
+
+### Configutation de Gogs
+
+Gogs a besoin de savoir quelle base de donnée utiliser, lui donner l'adresse IP du serveur en cours pour utiliser la MySQL installé par précédemment. Le script va aussi créer une base de donnée pour l'application.
+* **Nom de la base :** gogs
+* **Utilisateur :** gogs
+* **Password :** gogs
+
+**__Exemple :__**
+![link_to_db](https://imgur.com/Xp9ounm.png)
+
+Pour une utilisation simple la première page n'a pas besoin information. Gogs ne créé par par défaut un utilisateur administrateur, il faut créer un compte et le premier utilisateur créer sera le super administrateur de l'application.
+
+![logon](https://imgur.com/1dCwFrn.png)
+
 ## Reste à faire
 
 * Finir l'installation complète de l'environnement
 * Ecrire les procédures pour les actions manuelles à effectuer
-	* Installation et configuration manuelle de gogs
 	* Installation, configuration manuelle et liste des plugins pour Jenkins
 	* Configuration du compte SonarQube
 * Utiliser les images Docker et Docker compose plutôt que un script à la main
