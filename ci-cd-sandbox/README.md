@@ -43,6 +43,10 @@ Pour une utilisation simple la première page n'a pas besoin information. Gogs n
 
 ![logon](https://imgur.com/1dCwFrn.png)
 
+### Configuration de SonarQube
+
+SonarQube ne nécessite aucune configuration après installation, par défaut l'un utilisateur avec tous les droits est créé avec le nom `admin` et le mot de passe `admin`.
+
 ## Reste à faire
 
 * Finir l'installation complète de l'environnement
