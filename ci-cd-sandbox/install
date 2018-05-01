@@ -1,0 +1,42 @@
+#!/bin/bash
+
+#Installing MySQL Database & client
+apt install mysql-client
+docker pull mysql:5.7
+
+docker volume create mysql_data
+docker run --restart always --name mysql -d -p 3306:3306 -v mysql_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=secret mysql:5.7
+
+echo Waiting for MySQL container to be completely start
+sleep 30
+
+#Installation de gogs
+docker pull gogs/gogs
+
+mysql --host=127.0.0.1 --password=secret < sql/create_gogs_database.sql
+
+docker volume create gogs_data
+docker run --restart always --name gogs -d -p 3000:3000 -p 10022:22 -v gogs_data:/data gogs/gogs
+
+#Installation de sonarqube
+mysql --host=127.0.0.1 --password=secret < sql/create_sonar_database.sql
+
+jdbc_url='jdbc:mysql://mysql_url:3306/sonar?useUnicode=true&characterEncoding=utf8'
+
+echo "IP possible pour le serveur actuel : $(hostname -I)"
+echo URL vers le serveur MySQL : 
+read input_mysql_url
+
+docker run --name sonarqube --restart always -p 9000:9000 -p 9092:9092 -d -e SONARQUBE_JDBC_USERNAME=sonar -e SONARQUBE_JDBC_PASSWORD=sonar -e SONARQUBE_JDBC_URL="${jdbc_url/mysql_url/$input_mysql_url}" sonarqube:lts
+
+#Installation de Artifactory
+docker pull docker.bintray.io/jfrog/artifactory-oss:latest
+
+docker volume create artifactory_data
+docker run --name artifactory --restart always -d -v artifactory_data:/var/opt/jfrog/artifactory -p 8081:8081 docker.bintray.io/jfrog/artifactory-oss:latest
+
+#Installation de Jenkins
+docker pull jenkins/jenkins:lts
+
+docker volume create jenkins_data
+docker run -d --name jenkins --restart always -p 8080:8080 -p 50000:50000 -v jenkins_data:/var/jenkins_home jenkins/jenkins:lts
