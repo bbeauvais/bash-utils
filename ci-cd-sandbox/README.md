@@ -63,6 +63,14 @@ Ce mot de passe peut être trouvé :
 * Dans le fichier `/var/jenkins_home/secrets/initialAdminPassword`. Pour trouver la racine du volume monter par Docker pour Jenkins et allez lire le fichier faire la commande `docker volume inspect jenkins_data`. Le chemin du fichier est `secret/initialAdminPassword` à partir du point de montage.
 Le reste de la procédure se fait simplement.
 
+#### Plugins pour Jenkins
+Liste des plugins intéressants à installer pour faire des tests :
+* [Blue Ocean](https://wiki.jenkins.io/display/JENKINS/Blue+Ocean+Plugin)
+* [SonarQube Scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins)
+* [Artifactory plugin](https://www.jfrog.com/confluence/display/RTF/Jenkins+Artifactory+Plug-in)
+* [Maven plugin](https://plugins.jenkins.io/maven-plugin)
+* [Slack notifications](https://plugins.jenkins.io/slack)
+
 ## Reste à faire
 * Utiliser les images Docker et Docker compose plutôt que un script à la main
 * Ecrire un script de désinstallation de tout
