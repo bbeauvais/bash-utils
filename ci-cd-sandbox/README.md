@@ -70,6 +70,7 @@ Liste des plugins intéressants à installer pour faire des tests :
 * [Artifactory plugin](https://www.jfrog.com/confluence/display/RTF/Jenkins+Artifactory+Plug-in)
 * [Maven plugin](https://plugins.jenkins.io/maven-plugin)
 * [Slack notifications](https://plugins.jenkins.io/slack)
+* [Gogs intégration](https://plugins.jenkins.io/gogs-webhook)
 
 ## Reste à faire
 * Utiliser les images Docker et Docker compose plutôt que un script à la main
