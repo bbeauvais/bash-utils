@@ -51,9 +51,18 @@ SonarQube ne nécessite aucune configuration après installation, par défaut un
 
 Artifactory ne nécessite aucune configuration après installation, par défaut un administrateur avec tous les droits est créé avec les identifiants `admin:password`.
 
-## Reste à faire
+### Configuration de Jenkins
 
-* Ecrire les procédures pour les actions manuelles à effectuer
-	* Installation, configuration manuelle et liste des plugins pour Jenkins
+Au premier lancement Jenkins demande un mot de passe pour être débloqué :
+
+![jenkins_unlock](https://imgur.com/OMZ1dfP.png)
+
+Ce mot de passe peut être trouvé :
+* Dans les logs de Jenkins, pour le trouver faire la commande `docker logs jenkins`. Trouver le logs qui ressemble à 
+![jenkins_password](https://imgur.com/IRMtT44.png)
+* Dans le fichier `/var/jenkins_home/secrets/initialAdminPassword`. Pour trouver la racine du volume monter par Docker pour Jenkins et allez lire le fichier faire la commande `docker volume inspect jenkins_data`. Le chemin du fichier est `secret/initialAdminPassword` à partir du point de montage.
+Le reste de la procédure se fait simplement.
+
+## Reste à faire
 * Utiliser les images Docker et Docker compose plutôt que un script à la main
 * Ecrire un script de désinstallation de tout
