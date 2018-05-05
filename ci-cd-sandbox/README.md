@@ -69,6 +69,7 @@ Liste des plugins intéressants à installer pour faire des tests :
 * [SonarQube Scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins)
 * [Artifactory plugin](https://www.jfrog.com/confluence/display/RTF/Jenkins+Artifactory+Plug-in)
 * [Maven plugin](https://plugins.jenkins.io/maven-plugin)
+* [Maven Pipeline plugin](https://plugins.jenkins.io/pipeline-maven)
 * [Slack notifications](https://plugins.jenkins.io/slack)
 * [Gogs intégration](https://plugins.jenkins.io/gogs-webhook)
 
