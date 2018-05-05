@@ -72,7 +72,7 @@ Liste des plugins intéressants à installer pour faire des tests :
 * [Maven Pipeline plugin](https://plugins.jenkins.io/pipeline-maven)
 * [Slack notifications](https://plugins.jenkins.io/slack)
 * [Gogs intégration](https://plugins.jenkins.io/gogs-webhook)
-
+* [Pipeline utility steps](https://plugins.jenkins.io/pipeline-utility-steps)
 ## Reste à faire
 * Utiliser les images Docker et Docker compose plutôt que un script à la main
 * Ecrire un script de désinstallation de tout
